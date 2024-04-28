@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\ToDo;
 use Illuminate\Http\Request;
 
-class TodoController extends Controller
+class TodoController extends ParentController
 {
     protected $task;
 
-    public function __construct()
-    {
-        $this->task = new ToDo();
+ //   public function __construct()
+ //   {
+ //      $this->task = new ToDo();
 
-    }
+ //   }
 
     public function index(){
-        $response['tasks']=$this->task->all();
+        $response['tasks']=ToDo::all();
         return view('pages.todo.index')->with($response);
     }
 

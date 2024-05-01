@@ -34,4 +34,6 @@ class BannerController extends Controller
         BannerFacade::status($task_id);
         return redirect()->back();
     }
+
+    
 }

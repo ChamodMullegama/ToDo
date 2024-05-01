@@ -46,6 +46,7 @@
                         <a href="{{ route('todo.delete', $task->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         <a href="{{ route('todo.status', $task->id) }}" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
                         <a href="javascript:void(0)" class="btn btn-info"><i class="fas fa-pencil" onclick="taskEditModal({{ $task->id }})"></i></a>
+                        <a href="{{ route('todo.sub', $task->id) }}"class="btn btn-warning" ><i class="fas fa-arrow-right"></i></a>
                       </td>
                     </tr>
                     @endforeach

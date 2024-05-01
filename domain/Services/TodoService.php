@@ -1,14 +1,17 @@
 <?php
 namespace domain\Services;
 
+use App\Models\SubTask;
 use App\Models\ToDo;
 
 class TodoService
 {
     protected $task;
+    protected $sub;
 
     public function __construct(){
         $this->task = new ToDo();
+        $this->sub = new SubTask();
     }
 
     public function get($task_id){
@@ -51,5 +54,15 @@ class TodoService
         return array_merge($task->toArray(),$data);
      }
 
+
+     // sub task
+
+     public function subStore($data){
+        $this->sub->create($data);
+     }
+
+   public function getSubTasksByTask($task_id){
+    return $this->sub->getSubTasksByTask($task_id);
+   }
 }
 ?>

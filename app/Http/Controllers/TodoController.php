@@ -23,6 +23,7 @@ class TodoController extends ParentController
 
     public function delete($task_id)
     {
+
         ToDoFacade::delete($task_id);
         return redirect()->back();
     }
@@ -59,4 +60,6 @@ class TodoController extends ParentController
         TodoFacade::subStore($request->all());
         return redirect()->back();
     }
+
+    
 }

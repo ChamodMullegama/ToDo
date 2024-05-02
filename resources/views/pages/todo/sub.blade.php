@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12 mt-4">
-                                <div class="d-flex justify-content-end"> <!-- Align items to the right -->
+                                <div class="d-flex justify-content-end">
                                     <input type="hidden" class="hidden" name="task_id" value="{{ $task->id }}">
                                     <button type="submit" class="btn btn-primary btnAdd" >Add Sub Task</button>
                                 </div>

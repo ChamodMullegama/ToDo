@@ -27,6 +27,7 @@ Route::prefix('/todo')->group(function(){
     Route::get('/{task_id}/status',[TodoController::class,'status'])->name(('todo.status'));
     Route::get('/{task_id}/sub',[TodoController::class,'sub'])->name(('todo.sub'));
     Route::post('/sub/store',[TodoController::class,'subStore'])->name(('todo.sub.store'));
+ 
 
 
 });

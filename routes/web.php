@@ -17,6 +17,7 @@ use App\Http\Controllers\BannerController;
 */
 
 Route::get('/',[HomeController::class,"index"])->name('home');
+Route::get('/relationship',[HomeController::class,"relationship"])->name('relationship');
 Route::prefix('/todo')->group(function(){
 
     Route::get('/',[TodoController::class,"index"])->name('todo');
@@ -27,7 +28,7 @@ Route::prefix('/todo')->group(function(){
     Route::get('/{task_id}/status',[TodoController::class,'status'])->name(('todo.status'));
     Route::get('/{task_id}/sub',[TodoController::class,'sub'])->name(('todo.sub'));
     Route::post('/sub/store',[TodoController::class,'subStore'])->name(('todo.sub.store'));
- 
+
 
 
 });

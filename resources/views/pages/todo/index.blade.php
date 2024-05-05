@@ -5,6 +5,8 @@
         <div class="col-lg-12 text-center">
              <h1 class="page-title">My Todo List</h1>
         </div>
+        {{-- @hasanyrole('admin|sub_admin') --}}
+        @can('create_todo')
         <div class="col-lg-12">
             <form action="{{ route('todo.store') }}" method="POST">
                 @csrf
@@ -20,6 +22,8 @@
                 </div>
             </form>
         </div>
+        @endcan
+        {{-- @endhasrole --}}
         <div class="col-lg-12 mt-5">
             <table class="table table-dark table-striped">
                 <thead>
@@ -43,10 +47,21 @@
                           @endif
                       </td>
                       <td>
+                        @can('delete_todo')
                         <a href="{{ route('todo.delete', $task->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                        <a href="{{ route('todo.status', $task->id) }}" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                        @endcan
+                        @can('update_todo')
                         <a href="javascript:void(0)" class="btn btn-info"><i class="fas fa-pencil" onclick="taskEditModal({{ $task->id }})"></i></a>
+                        @endcan
+                        @can('done_todo')
+                        <a href="{{ route('todo.status', $task->id) }}" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                        @endcan
                         <a href="{{ route('todo.sub', $task->id) }}"class="btn btn-warning" ><i class="fas fa-arrow-right"></i></a>
+
+                        {{-- <a href="{{ route('todo.delete', $task->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="javascript:void(0)" class="btn btn-info"><i class="fas fa-pencil" onclick="taskEditModal({{ $task->id }})"></i></a>
+                        <a href="{{ route('todo.status', $task->id) }}" class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                        <a href="{{ route('todo.sub', $task->id) }}"class="btn btn-warning" ><i class="fas fa-arrow-right"></i></a> --}}
                       </td>
                     </tr>
                     @endforeach
